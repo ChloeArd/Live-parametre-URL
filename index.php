@@ -28,6 +28,12 @@
             <li>
                 <a href="coucou.php?nom=Conor&amp;prenom=Sarah&amp;age=65">Mon lien 3</a>
             </li>
+            <li>
+                <?php
+                $scr = "<script type='text/javascript'> alert('hello'); </script>"
+                ?>
+                <a href="coucou.php?nom=<?= $scr ?>&amp;prenom=Sarah&amp;age=65">Mon lien 3</a>
+            </li>
         </ul>
     </div>
 </body>

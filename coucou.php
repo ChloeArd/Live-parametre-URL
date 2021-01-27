@@ -8,11 +8,20 @@ if (!isset($_GET["nom"], $_GET["prenom"], $_GET["age"])) {
     header('Location: index.php?error=1');
 }
 
-$nom = $_GET['nom'];
-$prenom = $_GET['prenom'];
-$age = $_GET['age'];
+$nom = htmlentities($_GET['nom']);
+$prenom = strip_tags($_GET['prenom']);
+$age = intval($_GET['age']);
 
-echo "Hello $prenom $nom, tu as $age ans";
+if ($age > 1000){
+    $age = 1000;
+}
+elseif ($age <= 0){
+    $age = 1;
+}
+
+for ($i = 0; $i < $age; $i++){
+    echo "Bonjour $prenom $nom, valeur de \$i : $i <br>";
+}
 
 
 
